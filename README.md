@@ -1,2 +1,5 @@
-# skeleton-generator
-A bash script to generate the skeleton for the Resource Design Pattern, supporting several programming languages.
+# RESOURCE DESIGN PATTERN - SKELETON GENERATOR
+
+This bash package will generate the Skeleton for the Resource Design Pattern.
+
+Support for several programming languages are available.
