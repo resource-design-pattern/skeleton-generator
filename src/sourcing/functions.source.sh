@@ -277,5 +277,5 @@ set -e
         # vendor/package/name
         [ -d "../../../vendor" ] && vendor_path="." || vendor_path="vendor/${package_name}"
 
-        echo "skeleton/${vendor_path}"
+        echo "${vendor_path}"
     }
