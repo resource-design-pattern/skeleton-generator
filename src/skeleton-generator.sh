@@ -29,8 +29,6 @@ set -e
 # Read Arguments
 #################################################################################################################################################################
 
-    Print_Line "Reading Arguments"
-
     ([ "${1:0:1}" == "-" ] || [ -z "$1" ]) && Print_Fatal_Error "Missing Package Name, eg: package/name" || package_name="$1"
     ([ "${2:0:1}" == "-" ] || [ -z "$2" ]) && Print_Fatal_Error "Missing file extension for the programming language you want to use, eg: php" || file_extension="$2"
     ([ "${3:0:1}" == "-" ] || [ -z "$3" ]) && Print_Fatal_Error "Missing resource(s), eg: Products or eg: Products,Categories,Users" || resources="$3"
@@ -38,13 +36,15 @@ set -e
     shift 3
 
     name_separator="_"
+    vendor_path="."
 
-    while getopts ':a:c:e:i:s' flag; do
+    while getopts ':a:c:e:i:s:p:' flag; do
       case "${flag}" in
         a) appends="$OPTARG";;
         c) commons="$OPTARG";;
         e) excludes="$OPTARG";;
         i) includes="$OPTARG";;
+        p) vendor_path="${OPTARG:-.}";;
         s) name_separator="";;
         \?) Print_Fatal_Error "option -$OPTARG is not supported.";;
         :) Print_Fatal_Error "option -$OPTARG requires a value.";;
@@ -69,8 +69,6 @@ set -e
 #################################################################################################################################################################
 
     Print_Title ">>> START RESOURCES GENERATOR <<<<"
-
-    vendor_path="$( Get_Vendor_Path ${package_name} )"
 
     # Generating Main Skeleton
     Generate_Config_Skeleton "${vendor_path}"
