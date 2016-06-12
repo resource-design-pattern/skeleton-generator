@@ -18,8 +18,8 @@ If is installed yet in your system, please visit https://github.com/exadra37-bas
 # this path is for Ubuntu 14.04, may be necessary to adjust in other O.S.
 > cd /usr/local/bin
 
-# this must be run as root, therefore is prefixed with `sudo` if it fails to run
-> git clone -b master --single-branch --depth 1 https://github.com/resource-design-pattern/skeleton-generator.git vendor/resource-design-pattern/skeleton-generator
+# this must be run as root, therefore the use of `sudo`
+>sudo git clone -b master --single-branch --depth 1 https://github.com/resource-design-pattern/skeleton-generator.git vendor/resource-design-pattern/skeleton-generator
 ```
 
 ##### Installing required packages for our Skeleton Generator
@@ -28,7 +28,7 @@ If is installed yet in your system, please visit https://github.com/exadra37-bas
 > cd vendor/resource-design-pattern/skeleton-generator
 
 # We must have already the Bash Package Manager installed to run the next command
-> bpm install
+> sudo bpm install
 ```
 
 ##### Permanent Alias
